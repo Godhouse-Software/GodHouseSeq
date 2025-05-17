@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: seq
+    env: docker
+    image: datalust/seq:latest
+    plan: starter
+    runAsRoot: true
+    disk:
+      name: seq-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: ACCEPT_EULA
+        value: Y
+      - key: SEQ_FIRSTRUN_ADMINPASSWORD
+        value: P@ssword2025
+      - key: SEQ_API_CANONICALURI
+        value: https://seq.onrender.com
+    ports:
+      - port: 5341
+        protocol: tcp
