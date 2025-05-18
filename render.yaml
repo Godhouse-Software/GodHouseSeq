@@ -1,7 +1,7 @@
 services:
   - type: web
     name: seq
-    env: docker
+    env: image
     image: datalust/seq:latest
     plan: starter
     runAsRoot: true
