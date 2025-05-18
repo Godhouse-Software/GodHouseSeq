@@ -2,9 +2,9 @@ services:
   - type: web
     name: seq
     env: image
-    image: datalust/seq:latest
+    image:
+      url: datalust/seq:latest
     plan: starter
-    runAsRoot: true
     disk:
       name: seq-data
       mountPath: /data
@@ -12,10 +12,9 @@ services:
     envVars:
       - key: ACCEPT_EULA
         value: Y
+      - key: SEQ_FIRSTRUN_ADMINUSERNAME
+        value: admin
       - key: SEQ_FIRSTRUN_ADMINPASSWORD
         value: P@ssword2025
       - key: SEQ_API_CANONICALURI
         value: https://seq.onrender.com
-    ports:
-      - port: 5341
-        protocol: tcp
